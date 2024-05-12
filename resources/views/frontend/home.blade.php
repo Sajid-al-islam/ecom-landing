@@ -19,122 +19,7 @@
         href="https://organicghorbd.com/comments/feed/" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script>
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "https:\/\/organicghorbd.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5.2"
-            }
-        };
-        /*! This file is auto-generated */
-        ! function(i, n) {
-            var o, s, e;
 
-            function c(e) {
-                try {
-                    var t = {
-                        supportTests: e,
-                        timestamp: (new Date).valueOf()
-                    };
-                    sessionStorage.setItem(o, JSON.stringify(t))
-                } catch (e) {}
-            }
-
-            function p(e, t, n) {
-                e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0);
-                var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data),
-                    r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e
-                        .getImageData(0, 0, e.canvas.width, e.canvas.height).data));
-                return t.every(function(e, t) {
-                    return e === r[t]
-                })
-            }
-
-            function u(e, t, n) {
-                switch (t) {
-                    case "flag":
-                        return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !
-                            n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !n(e,
-                                "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
-                                "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                            );
-                    case "emoji":
-                        return !n(e, "\ud83d\udc26\u200d\u2b1b", "\ud83d\udc26\u200b\u2b1b")
-                }
-                return !1
-            }
-
-            function f(e, t, n) {
-                var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(
-                        300, 150) : i.createElement("canvas"),
-                    a = r.getContext("2d", {
-                        willReadFrequently: !0
-                    }),
-                    o = (a.textBaseline = "top", a.font = "600 32px Arial", {});
-                return e.forEach(function(e) {
-                    o[e] = t(a, e, n)
-                }), o
-            }
-
-            function t(e) {
-                var t = i.createElement("script");
-                t.src = e, t.defer = !0, i.head.appendChild(t)
-            }
-            "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = {
-                everything: !0,
-                everythingExceptFlag: !0
-            }, e = new Promise(function(e) {
-                i.addEventListener("DOMContentLoaded", e, {
-                    once: !0
-                })
-            }), new Promise(function(t) {
-                var n = function() {
-                    try {
-                        var e = JSON.parse(sessionStorage.getItem(o));
-                        if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() <
-                            e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests
-                    } catch (e) {}
-                    return null
-                }();
-                if (!n) {
-                    if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" !=
-                        typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try {
-                        var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p
-                                .toString()
-                            ].join(",") + "));",
-                            r = new Blob([e], {
-                                type: "text/javascript"
-                            }),
-                            a = new Worker(URL.createObjectURL(r), {
-                                name: "wpTestEmojiSupports"
-                            });
-                        return void(a.onmessage = function(e) {
-                            c(n = e.data), a.terminate(), t(n)
-                        })
-                    } catch (e) {}
-                    c(n = f(s, u, p))
-                }
-                t(n)
-            }).then(function(e) {
-                for (var t in e) n.supports[t] = e[t], n.supports.everything = n.supports.everything && n
-                    .supports[t], "flag" !== t && (n.supports.everythingExceptFlag = n.supports
-                        .everythingExceptFlag && n.supports[t]);
-                n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag, n
-                    .DOMReady = !1, n.readyCallback = function() {
-                        n.DOMReady = !0
-                    }
-            }).then(function() {
-                return e
-            }).then(function() {
-                var e;
-                n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e
-                    .concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)))
-            }))
-        }((window, document), window._wpemojiSettings);
-    </script>
     <style id='wp-emoji-styles-inline-css'>
         img.wp-smiley,
         img.emoji {
@@ -932,67 +817,54 @@
 
     <!-- Facebook Pixel Script By CartFlows -->
 
-    <script type='text/javascript'>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+    <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '418210320996583');
+    fbq('track', 'PageView');
     </script>
-
-    <noscript>
-        <img height='1' width='1' style='display:none'
-            src='https://www.facebook.com/tr?id=716493953750997&ev=PageView&noscript=1' />
-    </noscript>
-
-    <script type='text/javascript'>
-        fbq('init', 716493953750997);
-        fbq('track', 'PageView', {});
-    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=418210320996583&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <!-- End Facebook Pixel Script By CartFlows -->
     <script type='text/javascript'>
         fbq('track', 'ViewContent', {
-            "content_name": "Checkout (Woo)",
-            "content_ids": ["3620"],
+            "content_name": "Checkout Product",
+            "content_ids": ["1"],
             "currency": "BDT",
             "value": "699.00",
             "content_type": "product",
-            "contents": "[{\"id\":3620,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]"
+            "contents": "[{\"id\":1,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]"
         });
     </script>
     <script type='text/javascript'>
         fbq('track', 'AddToCart', {
-            "content_ids": ["3620"],
+            "content_ids": ["1"],
             "content_type": "product",
             "plugin": "Checkout",
             "value": "699.00",
             "content_name": "\u09e8\u09e7\u09e6 \u09ae\u09bf\u09b2\u09bf \u0985\u09df\u09c7\u09b2+\u09e7\u09eb\u09e6 \u0997\u09cd\u09b0\u09be\u09ae \u09ae\u09c7\u09b9\u09c7\u09a6\u09c0 \u09b9\u09c7\u09df\u09be\u09b0 \u09aa\u09cd\u09af\u09be\u0995 \u0995\u09ae\u09cd\u09ac\u09cb \u0964\u0964 \u09ab\u09cd\u09b0\u09c0 \u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09bf",
-            "content_category": "Uncategorized",
-            "contents": "[{\"id\":3620,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]",
+            "content_category": "Hair oil",
+            "contents": "[{\"id\":1,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]",
             "currency": "BDT",
             "user_roles": ""
         });
         fbq('track', 'InitiateCheckout', {
-            "content_ids": ["3620"],
+            "content_ids": ["1"],
             "content_type": "product",
             "value": "699.00",
             "content_name": "\u09e8\u09e7\u09e6 \u09ae\u09bf\u09b2\u09bf \u0985\u09df\u09c7\u09b2+\u09e7\u09eb\u09e6 \u0997\u09cd\u09b0\u09be\u09ae \u09ae\u09c7\u09b9\u09c7\u09a6\u09c0 \u09b9\u09c7\u09df\u09be\u09b0 \u09aa\u09cd\u09af\u09be\u0995 \u0995\u09ae\u09cd\u09ac\u09cb \u0964\u0964 \u09ab\u09cd\u09b0\u09c0 \u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09bf",
             "content_category": "Uncategorized",
-            "contents": "[{\"id\":3620,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]",
+            "contents": "[{\"id\":1,\"name\":\"\\u09e8\\u09e7\\u09e6 \\u09ae\\u09bf\\u09b2\\u09bf \\u0985\\u09df\\u09c7\\u09b2+\\u09e7\\u09eb\\u09e6 \\u0997\\u09cd\\u09b0\\u09be\\u09ae \\u09ae\\u09c7\\u09b9\\u09c7\\u09a6\\u09c0 \\u09b9\\u09c7\\u09df\\u09be\\u09b0 \\u09aa\\u09cd\\u09af\\u09be\\u0995 \\u0995\\u09ae\\u09cd\\u09ac\\u09cb \\u0964\\u0964 \\u09ab\\u09cd\\u09b0\\u09c0 \\u09a1\\u09c7\\u09b2\\u09bf\\u09ad\\u09be\\u09b0\\u09bf\",\"price\":\"699.00\",\"quantity\":\"1\"}]",
             "currency": "BDT",
             "user_roles": "",
             "num_items": 1,

@@ -1,0 +1,3 @@
+﻿"id","user_id","order_status","total_price","sub_total","delivery_cost","invoice_id","invoice_date","total_discount","order_coupon","coupon_discount","payment_status","delivery_method","status","created_at","updated_at","products","order_payments","stead_fast"
+2,"2","accepted","699","699",0,"2024050002","2024-05-12",0,,0,"Pending","home_delivery",1,"2024-05-12T13:43:20.000000Z","2024-05-12T13:44:17.000000Z",[object Object],[object Object],
+1,"2","Pending","699","699",0,"2024050001","2024-05-12",0,,0,"Pending","home_delivery",1,"2024-05-12T13:36:57.000000Z","2024-05-12T13:36:57.000000Z",[object Object],[object Object],
