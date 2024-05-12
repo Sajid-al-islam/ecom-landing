@@ -15,7 +15,7 @@
                                 <div class="myaccount-content">
                                     <h3>Dashboard</h3>
                                     @if (session()->has('access_token'))
-                                        <a class="btn btn-info my-3" href="/admin">go to dashboard</a>
+                                    <a class="btn btn-info my-3" onclick="window.location.href='/admin'">go to dashboard</a>
                                     @endif
                                     <div class="welcome">
                                         <p>
