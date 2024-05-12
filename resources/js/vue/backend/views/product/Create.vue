@@ -97,11 +97,11 @@
                                                     </div>
                                                     <div class="values_selections">
                                                         <label :for="`variant_${variant.id}_${variant_value.id}`" v-for="variant_value in variant.values" :key="variant_value.id">
-                                                            <input type="checkbox" 
-                                                                :name="`variants[${variant.id}][]`" 
-                                                                :value="`${variant_value.id}`" 
+                                                            <input type="checkbox"
+                                                                :name="`variants[${variant.id}][]`"
+                                                                :value="`${variant_value.id}`"
                                                                 :checked="variant_value.default_checked"
-                                                                class="form-check-input" 
+                                                                class="form-check-input"
                                                                 :id="`variant_${variant.id}_${variant_value.id}`">
                                                             <span class="variant_value">
                                                                 {{ variant_value.title }}
@@ -140,7 +140,7 @@
                                     </label>
                                     <br>
                                 </div>
-                                
+
 
                                 <div class="full_width mb-2 row">
 
@@ -210,7 +210,7 @@
                                     <label for="short_description">Short Description</label>
                                     <editor
                                         v-model="short_description_value"
-                                        api-key="yvwv8qozvtpzoa1pqrr8ji5li0lbxwc3yz1nckko68srnxhx"
+                                        api-key="d1wxddm2y8oc8aelf9yljfgq4553ntkqd0slwsh4tzyw05cg"
                                         :init="{height: 200}"
                                     />
                                 </div>
@@ -219,7 +219,7 @@
                                     <label for="specification">Specification</label>
                                     <editor
                                         v-model="specification_value"
-                                        api-key="yvwv8qozvtpzoa1pqrr8ji5li0lbxwc3yz1nckko68srnxhx"
+                                        api-key="d1wxddm2y8oc8aelf9yljfgq4553ntkqd0slwsh4tzyw05cg"
                                         :init="{height: 200}"
                                     />
                                     <!-- <textarea class="form-control" id="specification" name="specification" :value="this[`get_${store_prefix}`]['description']"></textarea> -->
@@ -230,7 +230,7 @@
                                     <div id="description">
                                         <editor
                                             v-model="description_value"
-                                            api-key="yvwv8qozvtpzoa1pqrr8ji5li0lbxwc3yz1nckko68srnxhx"
+                                            api-key="d1wxddm2y8oc8aelf9yljfgq4553ntkqd0slwsh4tzyw05cg"
                                             :init="{height: 200}"
                                         />
                                     </div>

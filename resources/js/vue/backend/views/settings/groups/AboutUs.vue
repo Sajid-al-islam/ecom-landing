@@ -12,7 +12,7 @@
             <div class="input_field">
                 <editor
                     v-model="description_value"
-                    api-key="yvwv8qozvtpzoa1pqrr8ji5li0lbxwc3yz1nckko68srnxhx"
+                    api-key="d1wxddm2y8oc8aelf9yljfgq4553ntkqd0slwsh4tzyw05cg"
                     :init="{height: 400}"
                 />
                 <button type="button" @click="update_descriptive_about" class="btn btn-primary mt-2"> Update descriptive about</button>
