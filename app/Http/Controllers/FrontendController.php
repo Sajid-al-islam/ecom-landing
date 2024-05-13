@@ -42,10 +42,10 @@ class FrontendController extends Controller
         $carts = new CartController();
 
         $rules = [
-            'first_name' => ['required', 'string'],
+            'first_name' => ['required', 'string', 'min:4'],
             // 'last_name' => ['required'],
-            'address' => ['required'],
-            'mobile_number' => ['required', 'string'],
+            'address' => ['required', 'string', 'min:4'],
+            'mobile_number' => ['required', 'min:10'],
             // 'email' => ['email'],
             // 'city' => ['required', 'string'],
             // 'zone' => ['required', 'string'],
@@ -61,10 +61,7 @@ class FrontendController extends Controller
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             $errors = $validator->errors();
-            return response()->json([
-                'err_message' => 'validation error',
-                'data' => $errors,
-            ], 422);
+            return redirect()->back()->withErrors($errors)->withInput()->with(['scroll_to' => '#billing']);
         }
 
         if(request()->police_stations == 'Enter police station name'){

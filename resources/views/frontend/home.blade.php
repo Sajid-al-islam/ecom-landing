@@ -881,6 +881,7 @@
             "language": "en-US",
             "userAgent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Safari\/537.36"
         });
+
     </script> <noscript>
         <style>
             .woocommerce-product-gallery {
@@ -1781,8 +1782,8 @@
                                                             পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন
                                                         </div>
                                                     </div>
-                                                    <button style="background-color: #116c3c;color: #fff;"
-                                                        class="w-100 btn btn-primary btn-lg mt-5"
+                                                    <button style="background-color: #ff0038;color: #fff;"
+                                                        class="w-100 btn btn-primary btn-lg mt-5 p-4"
                                                         type="submit">অর্ডার
                                                         কনফার্ম করতে ক্লিক করুন</button>
                                                 </div>
@@ -1813,7 +1814,7 @@
                                                         <div class="col-12">
                                                             <label for="mobile_no" class="form-label">সঠিক মোবাইল
                                                                 নাম্বার লিখুন</label>
-                                                            <input type="text" name="mobile_number"
+                                                            <input type="number" name="mobile_number"
                                                                 class="form-control" id="mobile_no" placeholder=""
                                                                 required="" />
                                                             <div class="invalid-feedback">
@@ -1902,12 +1903,37 @@
             </div>
         </div>
     </div>
+    @if(session('scroll_to'))
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                const element = document.querySelector("{{ session('scroll_to') }}");
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        </script>
+    @endif
     <script>
         (function() {
             var c = document.body.className;
             c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
             document.body.className = c;
         })();
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all close buttons within alert elements
+            var closeButtons = document.querySelectorAll('.alert .btn-close');
+
+            // Add click event listener to each close button
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Find the parent alert element and hide it
+                    var alert = button.closest('.alert');
+                    if (alert) {
+                        alert.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
     <script type="text/template" id="tmpl-variation-template">
 	<div class="woocommerce-variation-description"></div>
