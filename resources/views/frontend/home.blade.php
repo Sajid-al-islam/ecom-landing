@@ -818,21 +818,30 @@
     <!-- Facebook Pixel Script By CartFlows -->
 
     <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '418210320996583');
-    fbq('track', 'PageView');
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '418210320996583');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=418210320996583&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=418210320996583&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- End Facebook Pixel Script By CartFlows -->
@@ -1737,14 +1746,15 @@
                                                                         <img style="height: 80px;"
                                                                             src="{{ $product->related_images[0]['image_link'] }}"
                                                                             alt="">
-                                                                        <div class="pricing ms-3" style="font-family: 'Baloo Da 2'">
+                                                                        <div class="pricing ms-3"
+                                                                            style="font-family: 'Baloo Da 2'">
                                                                             <h6>{{ $product->product_name }}</h6>
                                                                         </div>
                                                                     </div>
                                                                 </label>
                                                             </div>
-                                                            <span
-                                                                class="fw-bold ms-2">{{ $product->sales_price }} ৳</span>
+                                                            <span class="fw-bold ms-2">{{ $product->sales_price }}
+                                                                ৳</span>
                                                         </li>
 
                                                         <li class="list-group-item d-flex justify-content-between">
@@ -1772,7 +1782,8 @@
                                                         </div>
                                                     </div>
                                                     <button style="background-color: #116c3c;color: #fff;"
-                                                        class="w-100 btn btn-primary btn-lg mt-5" type="submit">অর্ডার
+                                                        class="w-100 btn btn-primary btn-lg mt-5"
+                                                        type="submit">অর্ডার
                                                         কনফার্ম করতে ক্লিক করুন</button>
                                                 </div>
                                                 <div class="col-md-6 col-lg-6">
