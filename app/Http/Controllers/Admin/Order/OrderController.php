@@ -46,7 +46,9 @@ class OrderController extends Controller
             'order_payments' => function ($q) {
                 return $q->select('payment_method', 'id', 'order_id');
             },
-            'stead_fast',
+            'order_address' => function ($q) {
+                return $q->select('id', 'order_id','first_name', 'mobile_number', 'address');
+            },
         ]);
 
         $data = $query->paginate($paginate);
@@ -228,7 +230,7 @@ class OrderController extends Controller
     public function soft_delete()
     {
         $validator = Validator::make(request()->all(), [
-            'id' => ['required', 'exists:categories,id'],
+            'id' => ['required', 'exists:orders,id'],
         ]);
 
         if ($validator->fails()) {
@@ -342,7 +344,7 @@ class OrderController extends Controller
     public function restore()
     {
         $validator = Validator::make(request()->all(), [
-            'id' => ['required', 'exists:categories,id'],
+            'id' => ['required', 'exists:orders,id'],
         ]);
 
         if ($validator->fails()) {

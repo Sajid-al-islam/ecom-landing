@@ -77,7 +77,8 @@
                             <th><input @click="call_store(`set_select_all_${store_prefix}s`)" type="checkbox" class="form-check-input check_all"></th>
                             <table-th :sort="true" :tkey="'id'" :title="'ID'" :ariaLable="'id'"/>
                             <table-th :sort="true" :tkey="'invoice_id'" :title="'Invoice No'" />
-                            <table-th :sort="false" :tkey="''" :title="'Courier Status'" />
+                            <table-th :sort="false" :tkey="'name'" :title="'Name'"/>
+                            <table-th :sort="false" :tkey="'mobile_number'" :title="'Mobile Number'"/>
                             <table-th :sort="true" :tkey="'payment_status'" :title="'Payment Status'" />
                             <table-th :sort="true" :tkey="'payment_status'" :title="'Payment method'" />
                             <table-th :sort="true" :tkey="'order_status'" :title="'Order Status'" />
@@ -100,9 +101,12 @@
                                 </span>
                             </td>
                             <td>
-                                <span class="badge bg-primary">
-                                    {{ item.stead_fast?.status }}
+                                <span class="text-info">
+                                    {{ item.order_address?.first_name }}
                                 </span>
+                            </td>
+                            <td>
+                                {{ item.order_address?.mobile_number }}
                             </td>
                             <td>{{ item.payment_status }}</td>
                             <td>{{ item.order_payments && item.order_payments.payment_method }}</td>

@@ -98,6 +98,72 @@ const actions = {
 
     },
 
+    [`export_${store_prefix}_all`]: async function ({ state, commit }) {
+        let cconfirm = await window.s_confirm("export all");
+        if (cconfirm) {
+          let col = ['Customer Name', 'Mobile Number', 'Address'];
+          let other_cols = Object.keys(state[`${store_prefix}s`].data[0]);
+          other_cols = other_cols.filter(
+            (key) =>
+              !['products', 'order_payments', 'order_address'].includes(key)
+          );
+          col = col.concat(other_cols);
+
+          var export_csv = new window.CsvBuilder(
+            `${store_prefix}_list.csv`
+          ).setColumns(col);
+          window.start_loader();
+          let last_page = state[`${store_prefix}s`].last_page;
+          for (let index = 1; index <= last_page; index++) {
+            state.page = index;
+            state.paginate = 10;
+            await this.dispatch(`fetch_${store_prefix}s`);
+            let values = state[`${store_prefix}s`].data.map((i) => {
+              let row = {
+                'Customer Name': i.order_address?.first_name || '',
+                'Mobile Number': i.order_address?.mobile_number || '',
+                'Address': i.order_address?.address || '',
+              };
+              other_cols.forEach((key) => {
+                row[key] = i[key];
+              });
+              return Object.values(row);
+            });
+            export_csv.addRows(values);
+            let progress = Math.round((100 * index) / last_page);
+            window.update_loader(progress);
+          }
+          await export_csv.exportFile();
+          window.remove_loader();
+        }
+    },
+
+    [`export_selected_${store_prefix}_csv`]: function ({ state }) {
+        let col = ['Customer Name', 'Mobile Number', 'Address'];
+        let other_cols = Object.keys(state[`${store_prefix}_selected`][0]);
+        other_cols = other_cols.filter(
+            (key) => !['products', 'order_payments', 'order_address'].includes(key)
+        );
+        col = col.concat(other_cols);
+
+        let values = state[`${store_prefix}_selected`].map((i) => {
+            let row = {
+            'Customer Name': i.order_address?.first_name || '',
+            'Mobile Number': i.order_address?.mobile_number || '',
+            'Address': i.order_address?.address || '',
+            };
+            other_cols.forEach((key) => {
+                row[key] = i[key];
+            });
+            return Object.values(row);
+        });
+
+    new window.CsvBuilder(`${store_prefix}_list.csv`)
+        .setColumns(col)
+        .addRows(values)
+        .exportFile();
+    },
+
 
 }
 
