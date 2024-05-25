@@ -5,16 +5,68 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use App\Services\FacebookConversionAPIService;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
+    protected $facebookService;
+    public function __construct(FacebookConversionAPIService $facebookService)
+    {
+        $this->facebookService = $facebookService;
+    }
     public function website()
     {
         $product = Product::first();
+
         $cart = new CartController();
+        $this->facebookService->sendEvent('ViewContent', [
+            'event_source_url' => url()->current(),
+            'user_data' => $this->getUserData(),
+            'custom_data' => [
+                'content_ids' => [$product->id],
+                'content_name' => $product->product_name,
+                'content_category' => $product->categories[0]?->name,
+                'content_type' => 'product',
+                'value' => $product->sales_price,
+                'currency' => 'BDT'
+            ],
+        ]);
         $cart->add_to_cart($product->id, 1, null);
+
+        $this->facebookService->sendEvent('InitiateCheckout', [
+            'event_source_url' => url()->current(),
+            'user_data' => $this->getUserData(),
+            'custom_data' => [
+                'content_ids' => [$product->id],
+                'content_type' => [$product->product_name],
+                'content_category' => $product->categories[0]?->name,
+                'content_type' => 'product',
+                'value' => $product->sales_price,
+                'currency' => 'BDT',
+                "num_items" => 1,
+            ],
+        ]);
         return view('frontend.home', compact('product'));
+    }
+
+    protected function getUserData()
+    {
+        $user = auth()->user();
+        if(!empty($user)) {
+            return [
+                'em' => hash('sha256', $user->email),
+                'ph' => hash('sha256', $user->phone),
+                'fn' => hash('sha256', $user->first_name),
+                'ln' => hash('sha256', $user->last_name),
+            ];
+        }else {
+            return [
+                'client_ip_address' => request()->ip(),
+                'client_user_agent' => request()->userAgent(),
+            ];
+        }
+        return $user;
     }
 
     public function aboutus()

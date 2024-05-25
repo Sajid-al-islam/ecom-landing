@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Services\FacebookConversionAPIService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
@@ -51,10 +52,23 @@ class CartController extends Controller
         $product = Product::where('id', $id)
         ->where('status', 1)
         ->select("id", "product_name", "sales_price")
-        ->with(['discounts', 'related_image' => function ($q) {
+        ->with(['discounts', 'categories' ,'related_image' => function ($q) {
             $q->select('id', 'product_id', 'image');
         }])
         ->first();
+
+        (new FacebookConversionAPIService)->sendEvent('AddToCart', [
+            'event_source_url' => url()->current(),
+            'user_data' => $this->getUserData(),
+            'custom_data' => [
+                'content_ids' => [$product->id],
+                'content_name' => $product->name,
+                'content_category' => $product->categories[0]?->name,
+                'content_type' => 'product',
+                'value' => $product->sales_price,
+                'currency' => 'BDT',
+            ],
+        ]);
 
         if (isset($product->discounts) && $product->discounts) {
             $price = (float)$product->sales_price - (float)$product->discounts['discount_amount'];
@@ -75,6 +89,25 @@ class CartController extends Controller
 
         array_push($this->cart, collect($temp_arr));
         $this->cart_save();
+    }
+
+    protected function getUserData()
+    {
+        $user = auth()->user();
+        if(!empty($user)) {
+            return [
+                'em' => hash('sha256', $user->email),
+                'ph' => hash('sha256', $user->phone),
+                'fn' => hash('sha256', $user->first_name),
+                'ln' => hash('sha256', $user->last_name),
+            ];
+        }else {
+            return [
+                'client_ip_address' => request()->ip(),
+                'client_user_agent' => request()->userAgent(),
+            ];
+        }
+        return $user;
     }
 
     public function cart_save()

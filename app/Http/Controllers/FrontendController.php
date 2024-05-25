@@ -12,6 +12,7 @@ use App\Models\ProductReview;
 use App\Models\ProductStockLog;
 use App\Models\Setting;
 use App\Models\User;
+use App\Services\FacebookConversionAPIService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -142,6 +143,7 @@ class FrontendController extends Controller
         $order_info->zone = $request->zone;
         $order_info->city = $request->city;
         $order_info->comment = $request->comment;
+
         $order_info->save();
 
         $order_payment = new OrderPayment();
@@ -172,6 +174,8 @@ class FrontendController extends Controller
         $order_delivery->save();
 
         $cart_products = $carts->get();
+        $product_ids = [];
+        $product_names = [];
         foreach ($cart_products as $key => $product) {
             $order_details = new OrderDetails();
             $order_details->order_id = $order->id;
@@ -179,6 +183,8 @@ class FrontendController extends Controller
                 $order_details->user_id = Auth::user()->id;
             }
             $order_details->product_id = $product['product']->id;
+            $product_ids = $product['product']->id;
+            $product_names = $product['product']->product_name;
             if (is_numeric($product['product']->sales_price)) {
                 $order_details->product_price = $product['product']->sales_price;
             } else {
@@ -194,6 +200,24 @@ class FrontendController extends Controller
             $stock_log->type = "sell";
             $stock_log->save();
         }
+
+        (new FacebookConversionAPIService)->sendEvent('Purchase', [
+            'event_source_url' => url()->current(),
+            'user_data' => [
+                'em' => hash('sha256', $request->email),
+                'ph' => hash('sha256', $request->mobile_number),
+                'fn' => hash('sha256', $request->first_name),
+                'ln' => hash('sha256', $request->last_name),
+            ],
+            'custom_data' => [
+                'content_ids' => $product_ids,
+                'content_name' => $product_names,
+                'content_category' => "Organic Hair oil",
+                'content_type' => 'product',
+                'value' => $order->total_price,
+                'currency' => 'BDT',
+            ],
+        ]);
         $carts->emptyCart();
 
         $data = [];
